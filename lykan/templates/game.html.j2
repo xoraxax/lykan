@@ -1,0 +1,11 @@
+{% extends "base.html.j2" %}
+{% block title %}{% trans %}Werewolve game{% endtrans %}{% endblock %}
+{% block body %}
+  <h1><span id="roleandname">({% trans %}join at{% endtrans %} <tt id="URLtext">Please enable JavaScript!</tt>)</span></h1>
+  <div width="100%" height="80%" id="events">
+  </div>
+{% endblock %}
+{% block jsbody %}
+  document.getElementById("URLtext").textContent = window.location.href.replace("/master/", "/");
+  var ws = make_ws("masterws");
+{% endblock %}

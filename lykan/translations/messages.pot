@@ -1,0 +1,287 @@
+# Translations template for PROJECT.
+# Copyright (C) 2019 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2019-08-27 21:25+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: lykan/cards.py:32
+msgid "This player died:"
+msgstr ""
+
+#: lykan/cards.py:38
+msgid "The team of Citizens"
+msgstr ""
+
+#: lykan/cards.py:41
+msgid "The team of Werewolves"
+msgstr ""
+
+#: lykan/cards.py:51
+msgid "The loving couple"
+msgstr ""
+
+#: lykan/cards.py:79
+#, python-format
+msgid "Too many cards of singleton type %s"
+msgstr ""
+
+#: lykan/cards.py:87
+msgid "The witch"
+msgstr ""
+
+#: lykan/cards.py:99
+msgid "Do you want to use your healing potion?"
+msgstr ""
+
+#: lykan/cards.py:103
+msgid "Who do you want to heal?"
+msgstr ""
+
+#: lykan/cards.py:107
+msgid "Do you want to use your killing potion?"
+msgstr ""
+
+#: lykan/cards.py:108
+msgid "Who do you want to kill?"
+msgstr ""
+
+#: lykan/cards.py:119
+msgid "Who do you want to kill, werewolve? The majority vote will win."
+msgstr ""
+
+#: lykan/cards.py:127
+msgid "You werewolves chose to kill this player:"
+msgstr ""
+
+#: lykan/cards.py:137
+msgid "The hunter"
+msgstr ""
+
+#: lykan/cards.py:140
+msgid "And the hunter produced a shot ..."
+msgstr ""
+
+#: lykan/cards.py:141
+msgid "Who do you want to shoot?"
+msgstr ""
+
+#: lykan/cards.py:145
+msgid "The lynchee"
+msgstr ""
+
+#: lykan/cards.py:149
+msgid "The cupid"
+msgstr ""
+
+#: lykan/cards.py:152
+msgid "Who should fall in love?"
+msgstr ""
+
+#: lykan/cards.py:158
+msgid "Thus with a kiss you die!"
+msgstr ""
+
+#: lykan/cards.py:162
+msgid "You fell in love with this player. Be sure to survive both!"
+msgstr ""
+
+#: lykan/cards.py:166
+msgid "The seer"
+msgstr ""
+
+#: lykan/cards.py:168
+msgid "Whose role do you want to inquire?"
+msgstr ""
+
+#: lykan/cards.py:169
+#, python-format
+msgid "This player has the role '%(title)s'."
+msgstr ""
+
+#: lykan/cards.py:173
+msgid "The prince"
+msgstr ""
+
+#: lykan/gameengine.py:94
+msgid "You have died."
+msgstr ""
+
+#: lykan/gameengine.py:133
+msgid "The night begins! Everybody closes their eyes."
+msgstr ""
+
+#: lykan/gameengine.py:144
+#, python-format
+msgid "%(title)s opens their eyes."
+msgstr ""
+
+#: lykan/gameengine.py:151
+#, python-format
+msgid "%(title)s closes their eyes again."
+msgstr ""
+
+#: lykan/gameengine.py:157
+#, python-format
+msgid "The day %(num)i begins!"
+msgstr ""
+
+#: lykan/gameengine.py:162
+msgid "Last night, nobody died."
+msgstr ""
+
+#: lykan/gameengine.py:166
+msgid "Discuss, dear village."
+msgstr ""
+
+#: lykan/gameengine.py:167
+msgid "Who should the village kill?"
+msgstr ""
+
+#: lykan/gameengine.py:168
+msgid "And the vote cast was:"
+msgstr ""
+
+#: lykan/gameengine.py:173
+msgid "The person did not die!"
+msgstr ""
+
+#: lykan/gameengine.py:176
+msgid "No conclusive vote was cast."
+msgstr ""
+
+#: lykan/gameengine.py:183
+msgid "The game has ended, all are dead."
+msgstr ""
+
+#: lykan/gameengine.py:187
+#, python-format
+msgid "The game has ended. The winners are: %(title)s."
+msgstr ""
+
+#: lykan/gameengine.py:189
+msgid "You have won!"
+msgstr ""
+
+#: lykan/gameengine.py:194
+msgid "Welcome to Werewolves!"
+msgstr ""
+
+#: lykan/gameengine.py:225
+msgid "Not the correct amount of cards"
+msgstr ""
+
+#: lykan/main.py:30
+msgid "<Voice>Brian</Voice>"
+msgstr ""
+
+#: lykan/main.py:195
+msgid "Please select the correct amount of players."
+msgstr ""
+
+#: lykan/main.py:211
+msgid "<b>Game not found! Check the address you entered!</b>"
+msgstr ""
+
+#: lykan/main.py:225
+msgid "<b>What is your name?</b>"
+msgstr ""
+
+#: lykan/main.py:229
+msgid "Name already taken! Try again."
+msgstr ""
+
+#: lykan/main.py:231
+msgid "Game has already started."
+msgstr ""
+
+#: lykan/main.py:233
+msgid "Waiting for game master to start the game."
+msgstr ""
+
+#: lykan/main.py:244
+msgid "You do not have access to this game."
+msgstr ""
+
+#: lykan/main.py:250
+msgid "Waiting for players to join the game."
+msgstr ""
+
+#: lykan/main.py:254
+#, python-format
+msgid "%(num)i players are participating."
+msgstr ""
+
+#: lykan/templates/base.html.j2:9
+msgid "Werewolves"
+msgstr ""
+
+#: lykan/templates/game.html.j2:2 lykan/templates/mobile.html.j2:2
+msgid "Werewolve game"
+msgstr ""
+
+#: lykan/templates/game.html.j2:4
+msgid "join at"
+msgstr ""
+
+#: lykan/templates/lykan.js.j2:40
+msgid "voted for"
+msgstr ""
+
+#: lykan/templates/lykan.js.j2:72
+msgid "That&apos;s me"
+msgstr ""
+
+#: lykan/templates/lykan.js.j2:83
+msgid "How many of each card should be in the game?"
+msgstr ""
+
+#: lykan/templates/lykan.js.j2:87
+msgid "Select cards"
+msgstr ""
+
+#: lykan/templates/lykan.js.j2:97
+#, python-format
+msgid "select %i players"
+msgstr ""
+
+#: lykan/templates/lykan.js.j2:101
+msgid "This player"
+msgstr ""
+
+#: lykan/templates/lykan.js.j2:101
+msgid "These players"
+msgstr ""
+
+#: lykan/templates/lykan.js.j2:124
+msgid "Yes"
+msgstr ""
+
+#: lykan/templates/lykan.js.j2:124
+msgid "No"
+msgstr ""
+
+#: lykan/templates/lykan.js.j2:137
+msgid "Players in the game:"
+msgstr ""
+
+#: lykan/templates/lykan.js.j2:137
+msgid "Everybody is in!"
+msgstr ""
+
+#: lykan/templates/main.html.j2:2
+msgid "Play Werewolves online"
+msgstr ""
+

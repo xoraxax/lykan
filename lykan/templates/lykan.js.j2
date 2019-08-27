@@ -1,0 +1,212 @@
+function get_ws_uri() {
+  var loc = window.location, new_uri;
+  if (loc.protocol === "https:") {
+    new_uri = "wss:";
+  } else {
+    new_uri = "ws:";
+  }
+  new_uri += "//" + loc.host + "/";
+  return new_uri;
+}
+
+function get_code() {
+  var segments = window.location.pathname.split("/");
+  return segments.pop();
+}
+
+// TODO: this is cryptographically weak
+var random_string = function(length) {
+  const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  var text = "";
+  for (var i = 0; i < length; i++) {
+    text += charset.charAt(Math.floor(Math.random() * charset.length));
+  }
+  return text;
+}
+
+function render_players(players, plain) {
+  if (!!players && players.length) {
+    if (plain)
+      return escapeEntities(players.join(", "));
+    else
+      return "(<b>" + escapeEntities(players.join(", ")) + "</b>)";
+  }
+  return "";
+}
+
+function render_vote(vote) {
+  var s = "<ul>";
+  for (let voter in vote)
+    s += "<li>" + escapeEntities(voter) + " {% trans %}voted for{% endtrans %} " + escapeEntities(vote[voter]) + "</li>";
+  return s + "</ul>";
+}
+
+function escapeEntities(s) {
+  var p = document.createElement("p");
+  p.textContent = s;
+  return p.innerHTML;
+}
+
+function make_form(d, ws, element) {
+  var submit_setup = function (gather_form_data) {
+    return function() {
+      window.setTimeout(function () {
+        d.querySelector('#submitbutton').addEventListener('click', gather_form_data);
+      }, 0);
+    };
+  };
+  switch (element.ask) {
+    case null:
+    case "":
+      return [render_players(element.players) || render_vote(element.vote), null, null];
+    case "nonce":
+      return [null, function () {
+        var nonce = sessionStorage.getItem("nonce");
+        if (nonce == null) {
+          nonce = random_string(16);
+          sessionStorage.setItem("nonce", nonce);
+        }
+        ws.send(nonce);
+      }];
+    case "string":
+      return ["<form id='activeform' onsubmit='return false'>" + element.prompt + 
+              " <input type='text' id='textinput'> <input type='submit' id='submitbutton' value='{% trans %}That&apos;s me{% endtrans %}'></form>",
+        submit_setup(function() {
+          ws.send(d.querySelector("#textinput").value);
+          d.querySelector("#activeform").innerHTML = "";
+        })
+      ];
+    case "setup":
+      ws.send(" ");
+      document.querySelector("#roleandname").textContent = element.player ? (element.player + (element.card_title !== null ? 
+                                                                                               (" (" + element.card_title + ")") : "")) : "";
+      return [null, null];
+    case "cards":
+      var htmlstring = "<div id='activeform'>{% trans %}How many of each card should be in the game?{% endtrans %}<ul>";
+      for (let card_name in element.available) {
+        htmlstring += "<li><input type='text' name='cardcount' id='x_" + card_name + "'> " +
+	              escapeEntities(element.available[card_name].title) + "</li>";
+      }
+      htmlstring += "</ul><button type='button' id='submitbutton'>{% trans %}Select cards{% endtrans %}</button></div>";
+      return [htmlstring, submit_setup(function() {
+        var card_counts = {};
+        d.querySelectorAll('input[name="cardcount"]').forEach(function (card_field) {
+          card_counts[card_field.id.substr(2)] = parseInt(card_field.value || "0");
+        });
+        ws.send(JSON.stringify(card_counts));
+        d.querySelector("#activeform").innerHTML = "";
+      })];
+    case "n":
+      var htmlstring = "<div id='activeform'>" + escapeEntities(element.prompt) + 
+                       " ({% trans %}select %i players{% endtrans %})".replace("%i", element.n) + "<ul>";
+      element.amongst.forEach(function (player_name) {
+        htmlstring += "<li><input type='checkbox' name='person' value='" + escapeEntities(player_name) + "'>" +
+	              escapeEntities(player_name) + "</li>";
+      });
+      htmlstring += "</ul><div><button type='button' id='submitbutton'>" + (element.n == 1 ? "{% trans %}This player{% endtrans %}" :
+                    "{% trans %}These players{% endtrans %}") + "</button></div></div>";
+      return [htmlstring, submit_setup(function() {
+        var players = [];
+        d.querySelectorAll('input[name="person"]').forEach(function (card_field) {
+          if (card_field.checked)
+            players.push(card_field.value);
+        });
+        ws.send(JSON.stringify(players));
+        d.querySelector("#activeform").innerHTML = "";
+      })];
+    case "yesno":
+      var make_submit = function(retval) {
+        return function() {
+          ws.send(retval);
+          d.querySelector("#activeform").innerHTML = "";
+        };
+      };
+      var setup = function() {
+        window.setTimeout(function () {
+          d.querySelector('#submitbutton_t').addEventListener('click', make_submit("t"));
+          d.querySelector('#submitbutton_n').addEventListener('click', make_submit("n"));
+        }, 0);
+      };
+      return [" <div id='activeform'>" + element.prompt + " " + render_players(element.players) + 
+              " <button type='button' id='submitbutton_t'>{% trans %}Yes{% endtrans %}</button> " +
+	      "<button type='button' id='submitbutton_n'>{% trans %}No{% endtrans %}</button></div>", setup];
+    case "showplayers":
+      ws.send(" ");
+      var setup_func = null;
+      var allow_start = element.players.length >= 3;
+      if (allow_start) {
+        setup_func = submit_setup(function() {
+          var request = new XMLHttpRequest();
+          var nonce = sessionStorage.getItem("nonce");
+          request.open("GET", "/start_game/" + get_code() + "/" + nonce);
+          request.send();
+        })
+      }
+      return ["<div>{% trans %}Players in the game:{% endtrans %} " + render_players(element.players, true) + "</div>" +
+              (allow_start ? "<div><button type='button' id='submitbutton'>{% trans %}Everybody is in!{% endtrans %}</button></div>" : ""),
+        setup_func
+      ];
+    default:
+      ws.send(" ");
+      return ["unknown form type!", null];
+  }
+}
+
+function make_ws(typ) {
+  const eventCount = 5;
+  var ws;
+  var reconnect = function() {
+    ws = new WebSocket(get_ws_uri() + typ);
+  };
+  reconnect();
+  var eventsBox = document.getElementById("events");
+  var events = document.createElement("ul");
+  eventsBox.appendChild(events);
+  var was_form = false;
+  ws.onopen = function() {
+    ws.send(get_code());
+  };
+  ws.onerror = function(evt) {
+    reconnect();
+  };
+  ws.onmessage = function(evt) {
+    var msg = JSON.parse(evt.data);
+    if (!!msg.hash) {
+      var audio = new Audio("../../voice/{{ locale }}/" + msg.hash);
+      audio.addEventListener("playing", function () {
+        var sentData = false;
+        audio.addEventListener("timeupdate", function () {
+          if (audio.paused && !sentData) {
+            sentData = true;
+            ws.send(" ");
+          }
+        });
+      });
+      audio.play();
+    }
+    var eventResult = make_form(document, ws, msg);
+    window.setTimeout(function () {
+      if (eventResult[0] != null || !!msg.content) {
+        var li = document.createElement("li");
+        li.innerHTML = (msg.content || "") + " " + eventResult[0];
+        if (was_form) {
+          events.replaceChild(li, events.lastChild);
+        } else {
+          events.appendChild(li);
+        }
+        was_form = !!msg.ask || !!msg.temporary;
+        window.navigator.vibrate(200);
+      } else {
+        if (was_form)
+          events.lastChild.remove();
+        was_form = false;
+      }
+      while (events.children.length > eventCount)
+        events.firstChild.remove();
+      if (eventResult[1] != null)
+        eventResult[1]();
+      if (!msg.hash && eventResult[2] !== undefined)
+        ws.send(" ");
+    }, 0);
+  };
+}

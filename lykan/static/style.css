@@ -1,0 +1,37 @@
+body {
+  font-family: 'Oldenburg', cursive;
+  background-color: #00AF1F;
+}
+
+li {
+  margin: 0.2em;
+}
+
+form {
+  margin: 0.5em;
+}
+
+h1 a {
+  text-decoration: none;
+  color: black;
+}
+
+body > div > ul > li {
+  display: inline-block;
+  background-color: white;
+  font-size: 1.3rem;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+ul li ul li {
+  display: block;
+}
+
+input[name=code] {
+  text-transform: uppercase;
+}
+
+input[type=submit], button {
+  margin: 0.5em;
+}

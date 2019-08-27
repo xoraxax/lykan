@@ -1,0 +1,16 @@
+{% extends "base.html.j2" %}
+{% block title %}{% trans %}Play Werewolves online{% endtrans %}{% endblock %}
+{% block body %}
+<div>
+  <ul><li><form onsubmit="return submit_join_form()"><b>Game code:</b> <input type="text" name="code" maxlength="5" placeholder="ABCDE"> <input type="submit" value="Join a game"></form></li>
+  <li><form action="/create_new_game/en" method="post"><input type="submit" value="Start a new game (English)"></form></li>
+  <li><form action="/create_new_game/de" method="post"><input type="submit" value="Neues Spiel starten (Deutsch)"></form></li>
+  </ul>
+</div>
+{% endblock %}
+{% block jsbody %}
+  function submit_join_form() {
+    window.location.pathname += document.querySelector("input[name='code']").value;
+    return false;
+  }
+{% endblock %}
