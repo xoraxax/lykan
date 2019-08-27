@@ -1,7 +1,7 @@
-Werewolves
-==========
+Lykan
+=====
 
-Werewolves is an implementation of the popular game of the same name.
+Lykan is an implementation of the popular social game called "Werewolves".
 
 See AUTHORS for a list of authors holding the copyright of this software.
 
@@ -15,7 +15,7 @@ Installation
 
  1. Install Python 3.7, virtualenv, and pip::
 
-      sudo apt-get install python3-pip virtualenv python3-virtualenv python3-dev
+      sudo apt install python3-pip virtualenv python3-virtualenv python3-dev
 
  2. Create a virtual environment using Python 3.7::
 
