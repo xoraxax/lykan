@@ -79,6 +79,8 @@ class WSUI(UI):
             msg["hash"] = util.gen_hash(req.msg)
         if req.vote:
             msg["vote"] = {p.name: v.name for p, v in req.vote.items()}
+        if not req.vibrate:
+            msg["dont_vibrate"] = True
         return msg, None
 
     def SelectNPlayers(self, req):
@@ -125,7 +127,7 @@ class ThreadedGame(gameengine.Game, threading.Thread):
 
     def get_player_generator(self, player):
         yield from self.gen_basics_for_player(player)  # First time.
-        if player:
+        if player and not self.game_start.is_set():
             yield gameengine.InfoMessage(_("Waiting for game master to start the game."), player=player, temporary=True)
         yield from self._convert_player_pipe(player)
 
@@ -203,6 +205,7 @@ class ThreadedGame(gameengine.Game, threading.Thread):
                                 req.player.pipe_parent.recv()
                         else:
                             break
+                    req.player.last_req = None
                     reply = req.coerce(reply)
             except gameengine.GameEnd:
                 break

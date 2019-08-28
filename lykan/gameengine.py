@@ -71,12 +71,13 @@ class YesNoQuestion(Request):
         
     
 class InfoMessage(Request):
-    def __init__(self, msg_or_msgs, player=None, players=None, vote=None, temporary=False):
+    def __init__(self, msg_or_msgs, player=None, players=None, vote=None, temporary=False, vibrate=True):
         super().__init__(player)
         self.msg = random.choice(msg_or_msgs) if isinstance(msg_or_msgs, list) else msg_or_msgs
         self.players = players
         self.vote = vote
         self.temporary = temporary
+        self.vibrate = vibrate
 
 
 class Player:
@@ -155,7 +156,7 @@ class Game:
                     yield from card.reduce(reducers[reduce_key])
                 
     def _play_day(self, day_no):
-        yield InfoMessage(_("The day %(num)i begins!", num=day_no))
+        yield InfoMessage(_("Day %(num)i begins!", num=day_no))
         died = False
         for player in self.hitlist:
             died |= yield from player.kill()

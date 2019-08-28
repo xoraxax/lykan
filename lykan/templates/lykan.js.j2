@@ -195,7 +195,8 @@ function make_ws(typ) {
           events.appendChild(li);
         }
         was_form = !!msg.ask || !!msg.temporary;
-        window.navigator.vibrate(200);
+	if (!msg.dont_vibrate)
+          window.navigator.vibrate(200);
       } else {
         if (was_form)
           events.lastChild.remove();

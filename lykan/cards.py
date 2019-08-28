@@ -30,6 +30,7 @@ class RoleCard:
         assert self.player.is_alive
         self.player.is_alive = False
         yield gameengine.InfoMessage(_("This player died:"), players=[self.player])
+        yield gameengine.InfoMessage(_("The role was %(title)s.", title=_(self.player.role_card.TITLE)))
         yield from self.after_death()
         return True
 
@@ -159,7 +160,8 @@ class Cupid(Citizens, RoleCard):
                         yield from to_kill.kill()
                 return trigger
             first.role_card.after_death_triggers.append(make_trigger(second))
-            yield gameengine.InfoMessage(_("You fell in love with this player. Be sure to survive both!"), player=first, players=[second])
+            yield gameengine.InfoMessage(_("You fell in love with this player. Be sure to survive both!"), player=first,
+                                         players=[second], vibrate=False)
 
 
 class Seer(CitizensActiveAtNight, RoleCard):
