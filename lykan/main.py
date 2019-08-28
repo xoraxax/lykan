@@ -305,7 +305,7 @@ def masterws(ws):
 
 @app.route('/')
 def root():
-    return render_template("main.html.j2")
+    return render_template("main.html.j2", locale="en")
 
 
 @app.route('/js/<locale>')
