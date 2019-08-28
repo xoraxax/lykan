@@ -154,22 +154,38 @@ function make_form(d, ws, element) {
 
 function make_ws(typ) {
   const eventCount = 5;
+  const ws_uri = get_ws_uri() + typ;
   var ws;
   var reconnect = function() {
     ws = new WebSocket(get_ws_uri() + typ);
+    var new_ws = new WebSocket(ws_uri);
+    if (ws) {
+      new_ws.onopen = ws.onopen;
+      new_ws.onerror = ws.onerror;
+      new_ws.onclose = ws.onclose;
+      new_ws.onmessage = ws.onmessage;
+    }
+    ws = new_ws;
   };
   reconnect();
+  var send_ping = function () {
+    ws.send("__PING");
+    window.setTimeout(send_ping, 1000);
+  };
   var eventsBox = document.getElementById("events");
   var events = document.createElement("ul");
   eventsBox.appendChild(events);
   var was_form = false;
   ws.onopen = function() {
     ws.send(get_code());
+    send_ping();
   };
-  ws.onerror = function(evt) {
+  ws.onclose = ws.onerror = function(evt) {
     reconnect();
   };
   ws.onmessage = function(evt) {
+    if (evt.data === "PONG")
+      return;
     var msg = JSON.parse(evt.data);
     if (!!msg.hash) {
       var audio = new Audio("../../voice/{{ locale }}/" + msg.hash);
@@ -182,7 +198,7 @@ function make_ws(typ) {
           }
         });
       });
-      audio.play();
+      audio.oncanplaythrough = function () { audio.play(); };
     }
     var eventResult = make_form(document, ws, msg);
     window.setTimeout(function () {

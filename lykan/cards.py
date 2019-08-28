@@ -30,7 +30,7 @@ class RoleCard:
         assert self.player.is_alive
         self.player.is_alive = False
         yield gameengine.InfoMessage(_("This player died:"), players=[self.player])
-        yield gameengine.InfoMessage(_("The role was %(title)s.", title=_(self.player.role_card.TITLE)))
+        yield gameengine.InfoMessage(_("The role was %(title)s.", title=_(self.player.role_card.TITLE)), fast=True)
         yield from self.after_death()
         return True
 

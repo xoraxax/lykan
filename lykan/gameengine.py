@@ -71,13 +71,14 @@ class YesNoQuestion(Request):
         
     
 class InfoMessage(Request):
-    def __init__(self, msg_or_msgs, player=None, players=None, vote=None, temporary=False, vibrate=True):
+    def __init__(self, msg_or_msgs, player=None, players=None, vote=None, temporary=False, vibrate=True, fast=False):
         super().__init__(player)
         self.msg = random.choice(msg_or_msgs) if isinstance(msg_or_msgs, list) else msg_or_msgs
         self.players = players
         self.vote = vote
         self.temporary = temporary
         self.vibrate = vibrate
+        self.fast = fast
 
 
 class Player:
@@ -156,7 +157,7 @@ class Game:
         yield InfoMessage(_("Everybody opens their eyes again."))
                 
     def _play_day(self, day_no):
-        yield InfoMessage(_("Day %(num)i begins!", num=day_no))
+        yield InfoMessage(_("Day %(num)i begins!", num=day_no), fast=True)
         died = False
         for player in self.hitlist:
             died |= yield from player.kill()
@@ -193,7 +194,7 @@ class Game:
 
     def play_game(self):
         self._validate()
-        yield InfoMessage(_("Welcome to Werewolves!"))
+        yield InfoMessage(_("Welcome to Werewolves!"), fast=True)
         day = 0
         while True:
             yield from self._play_night(is_first_night=not day)

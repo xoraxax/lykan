@@ -145,7 +145,7 @@ class ThreadedGame(gameengine.Game, threading.Thread):
                     req = pipe.recv()
                     req.game = self
                 resume = False
-                if player is self:
+                if player is self and not req.fast:
                     time.sleep(4)
                 pipe.send((yield req))
             except StopIteration:
@@ -285,9 +285,11 @@ def run_client_on_ws(client, ws):
         try:
             msg = client.send(reply)
             ws.send(json.dumps(msg))
-            reply = ws.receive()
-            if reply is None:  # WS closed
-                break
+            reply = "__PING"
+            while reply == "__PING":
+                reply = ws.receive()
+                if reply is None:  # WS closed
+                    break
         except StopIteration:
             break
 
