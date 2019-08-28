@@ -13,11 +13,12 @@ import threading
 import time
 
 from flask import Flask, render_template, g, redirect, url_for, send_from_directory
-from flask_babel import Babel, gettext, ngettext
+from flask_babel import Babel, gettext
 from flask_sockets import Sockets
 builtins._ = lambda x, *args, **kwargs: gettext(x) % (args or kwargs)
 
 from lykan import gameengine, util, cards
+
 
 logging.basicConfig()
 logging.getLogger().setLevel(logging.INFO)

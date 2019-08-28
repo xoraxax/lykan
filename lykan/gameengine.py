@@ -104,7 +104,6 @@ class Session:
 
     def activate(self, name):
         assert not self.player
-        self.disconnected = False
         self.player = self.game.add_player(name)
 
 
@@ -154,6 +153,7 @@ class Game:
             for reduce_key in reducers.keys():
                 for card in reducers[reduce_key]:
                     yield from card.reduce(reducers[reduce_key])
+        yield InfoMessage(_("Everybody opens their eyes again."))
                 
     def _play_day(self, day_no):
         yield InfoMessage(_("Day %(num)i begins!", num=day_no))
