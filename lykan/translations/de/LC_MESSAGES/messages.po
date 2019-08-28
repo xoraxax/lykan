@@ -7,181 +7,185 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-08-28 12:50+0200\n"
-"PO-Revision-Date: 2019-08-28 12:50+0200\n"
+"POT-Creation-Date: 2019-08-28 13:12+0200\n"
+"PO-Revision-Date: 2019-08-28 13:12+0200\n"
 "Last-Translator: \n"
 "Language: de\n"
 "Language-Team: de <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
-"X-Generator: Poedit 2.2.1\n"
 
 #: lykan/cards.py:32
 msgid "This player died:"
 msgstr "Dieser Spieler starb:"
 
-#: lykan/cards.py:38
+#: lykan/cards.py:33
+#, python-format
+msgid "The role was %(title)s."
+msgstr "Die Rolle war %(title)s."
+
+#: lykan/cards.py:39
 msgid "The team of Citizens"
 msgstr "Das Team der Bürger"
 
-#: lykan/cards.py:41
+#: lykan/cards.py:42
 msgid "The team of Werewolves"
 msgstr "Das Team der Werwölfe"
 
-#: lykan/cards.py:51
+#: lykan/cards.py:52
 msgid "The loving couple"
 msgstr "Das Liebespaar"
 
-#: lykan/cards.py:79
+#: lykan/cards.py:80
 #, python-format
 msgid "Too many cards of singleton type %s"
 msgstr "Zuviele Karten vom Typ %s, es darf nur eine geben"
 
-#: lykan/cards.py:87
+#: lykan/cards.py:88
 msgid "The witch"
 msgstr "Die Hexe"
 
-#: lykan/cards.py:99
+#: lykan/cards.py:100
 msgid "Do you want to use your healing potion?"
 msgstr "Willst du deinen Heiltrank benutzen?"
 
-#: lykan/cards.py:103
+#: lykan/cards.py:104
 msgid "Who do you want to heal?"
 msgstr "Wen möchtest du heilen?"
 
-#: lykan/cards.py:107
+#: lykan/cards.py:108
 msgid "Do you want to use your killing potion?"
 msgstr "Möchtest du deinen Tötungstrank benutzen?"
 
-#: lykan/cards.py:108
+#: lykan/cards.py:109
 msgid "Who do you want to kill?"
 msgstr "Wen möchtest du töten?"
 
-#: lykan/cards.py:119
+#: lykan/cards.py:120
 msgid "Who do you want to kill, werewolve? The majority vote will win."
 msgstr "Wen möchtest du töten, Werwolf? Die Stimmenmehrheit gewinnt."
 
-#: lykan/cards.py:127
+#: lykan/cards.py:128
 msgid "You werewolves chose to kill this player:"
 msgstr "Ihr Werwölfe habt diesen Spieler getötet:"
 
-#: lykan/cards.py:137
+#: lykan/cards.py:138
 msgid "The hunter"
 msgstr "Der Jäger"
 
-#: lykan/cards.py:140
+#: lykan/cards.py:141
 msgid "And the hunter produced a shot ..."
 msgstr "Und der Jäger erschoss ..."
 
-#: lykan/cards.py:141
+#: lykan/cards.py:142
 msgid "Who do you want to shoot?"
 msgstr "Wen möchtest du erschießen?"
 
-#: lykan/cards.py:145
+#: lykan/cards.py:146
 msgid "The lynchee"
 msgstr "Der Gerber"
 
-#: lykan/cards.py:149
+#: lykan/cards.py:150
 msgid "The cupid"
 msgstr "Amor"
 
-#: lykan/cards.py:152
+#: lykan/cards.py:153
 msgid "Who should fall in love?"
 msgstr "Wer soll sich verlieben?"
 
-#: lykan/cards.py:158
+#: lykan/cards.py:159
 msgid "Thus with a kiss you die!"
 msgstr "Und so stirbst du mit einem Kuss!"
 
-#: lykan/cards.py:162
+#: lykan/cards.py:163
 msgid "You fell in love with this player. Be sure to survive both!"
 msgstr "Du hast dich in diesen Spieler verliebt. Versucht beide, zu überleben!"
 
-#: lykan/cards.py:166
+#: lykan/cards.py:168
 msgid "The seer"
 msgstr "Der Seher"
 
-#: lykan/cards.py:168
+#: lykan/cards.py:170
 msgid "Whose role do you want to inquire?"
 msgstr "Wessen Rolle willst du herausfinden?"
 
-#: lykan/cards.py:169
+#: lykan/cards.py:171
 #, python-format
 msgid "This player has the role '%(title)s'."
 msgstr "Dieser Spieler hat die Rolle '%(title)s'."
 
-#: lykan/cards.py:173
+#: lykan/cards.py:175
 msgid "The prince"
 msgstr "Der Prinz"
 
-#: lykan/gameengine.py:95
+#: lykan/gameengine.py:96
 msgid "You have died."
 msgstr "Du bist gestorben."
 
-#: lykan/gameengine.py:134
+#: lykan/gameengine.py:135
 msgid "The night begins! Everybody closes their eyes."
 msgstr "Die Nacht naht, jeder schließt seine Augen."
 
-#: lykan/gameengine.py:145
+#: lykan/gameengine.py:146
 #, python-format
 msgid "%(title)s opens their eyes."
 msgstr "%(title)s öffnet die Augen."
 
-#: lykan/gameengine.py:152
+#: lykan/gameengine.py:153
 #, python-format
 msgid "%(title)s closes their eyes again."
 msgstr "%(title)s schließt die Augen wieder."
 
-#: lykan/gameengine.py:158
+#: lykan/gameengine.py:159
 #, python-format
-msgid "The day %(num)i begins!"
-msgstr "Tag %(num)i beginnt!"
+msgid "Day %(num)i begins!"
+msgstr ""
 
-#: lykan/gameengine.py:163
+#: lykan/gameengine.py:164
 msgid "Last night, nobody died."
 msgstr "In der letzten Nacht ist niemand gestorben."
 
-#: lykan/gameengine.py:167
+#: lykan/gameengine.py:168
 msgid "Discuss, dear village."
 msgstr "Diskutiert, liebes Dorf."
 
-#: lykan/gameengine.py:168
+#: lykan/gameengine.py:169
 msgid "Who should the village kill?"
 msgstr "Wen soll das Dorf töten?"
 
-#: lykan/gameengine.py:169
+#: lykan/gameengine.py:170
 msgid "And the vote cast was:"
 msgstr "Und die Abstimmung ergab:"
 
-#: lykan/gameengine.py:174
+#: lykan/gameengine.py:175
 msgid "The person did not die!"
 msgstr "Die Person starb nicht."
 
-#: lykan/gameengine.py:177
+#: lykan/gameengine.py:178
 msgid "No conclusive vote was cast."
 msgstr "Die Abstimmung war nicht eindeutig."
 
-#: lykan/gameengine.py:184
+#: lykan/gameengine.py:185
 msgid "The game has ended, all are dead."
 msgstr "Das Spiel ist zu Ende, alle sind tot."
 
-#: lykan/gameengine.py:188
+#: lykan/gameengine.py:189
 #, python-format
 msgid "The game has ended. The winners are: %(title)s."
 msgstr "Das Spiel ist zu Ende, die Gewinner sind: %(title)s."
 
-#: lykan/gameengine.py:190
+#: lykan/gameengine.py:191
 msgid "You have won!"
 msgstr "Du hast gewonnen!"
 
-#: lykan/gameengine.py:195
+#: lykan/gameengine.py:196
 msgid "Welcome to Werewolves!"
 msgstr "Willkommen zu Werwölfe!"
 
-#: lykan/gameengine.py:226
+#: lykan/gameengine.py:227
 msgid "Not the correct amount of cards"
 msgstr "Falsche Anzahl an Karten"
 
@@ -189,39 +193,39 @@ msgstr "Falsche Anzahl an Karten"
 msgid "<Voice>Brian</Voice>"
 msgstr "<Voice>Hans</Voice>"
 
-#: lykan/main.py:129
+#: lykan/main.py:131
 msgid "Waiting for game master to start the game."
 msgstr "Warte auf den Spielleiter für den Spielstart."
 
-#: lykan/main.py:201
+#: lykan/main.py:203
 msgid "Please select the correct amount of players."
 msgstr "Wähle die richtige Anzahl an Spielern aus."
 
-#: lykan/main.py:217
+#: lykan/main.py:220
 msgid "<b>Game not found! Check the address you entered!</b>"
 msgstr "<b>Spiel nicht gefunden! Prüfe die eingegebene Adresse!</b>"
 
-#: lykan/main.py:231
+#: lykan/main.py:234
 msgid "<b>What is your name?</b>"
 msgstr "<b>Wie heißt du?</b>"
 
-#: lykan/main.py:235
+#: lykan/main.py:238
 msgid "Name already taken! Try again."
 msgstr "Name schon vergeben. Versuche es erneut."
 
-#: lykan/main.py:237
+#: lykan/main.py:240
 msgid "Game has already started."
 msgstr "Das Spiel ist schon angefangen."
 
-#: lykan/main.py:249
+#: lykan/main.py:252
 msgid "You do not have access to this game."
 msgstr "Du hast keinen Zugang zu diesem Spiel."
 
-#: lykan/main.py:255
+#: lykan/main.py:258
 msgid "Waiting for players to join the game."
 msgstr "Warte auf Spieler, die dem Spiel beitreten."
 
-#: lykan/main.py:259
+#: lykan/main.py:262
 #, python-format
 msgid "%(num)i players are participating."
 msgstr "%(num)i Spieler sind dabei."
@@ -289,3 +293,7 @@ msgstr "Spiele Werwölfe mit einem virtuellen Spielleiter"
 
 #~ msgid "Play Werewolves online"
 #~ msgstr "Spiele Werwölfe online"
+
+#~ msgid "The day %(num)i begins!"
+#~ msgstr "Tag %(num)i beginnt!"
+
