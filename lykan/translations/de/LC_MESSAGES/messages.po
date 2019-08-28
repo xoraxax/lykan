@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-08-27 21:25+0200\n"
-"PO-Revision-Date: 2019-08-27 22:26+0200\n"
+"POT-Creation-Date: 2019-08-28 12:50+0200\n"
+"PO-Revision-Date: 2019-08-28 12:50+0200\n"
 "Last-Translator: \n"
 "Language: de\n"
 "Language-Team: de <LL@li.org>\n"
@@ -117,71 +117,71 @@ msgstr "Dieser Spieler hat die Rolle '%(title)s'."
 msgid "The prince"
 msgstr "Der Prinz"
 
-#: lykan/gameengine.py:94
+#: lykan/gameengine.py:95
 msgid "You have died."
 msgstr "Du bist gestorben."
 
-#: lykan/gameengine.py:133
+#: lykan/gameengine.py:134
 msgid "The night begins! Everybody closes their eyes."
 msgstr "Die Nacht naht, jeder schließt seine Augen."
 
-#: lykan/gameengine.py:144
+#: lykan/gameengine.py:145
 #, python-format
 msgid "%(title)s opens their eyes."
 msgstr "%(title)s öffnet die Augen."
 
-#: lykan/gameengine.py:151
+#: lykan/gameengine.py:152
 #, python-format
 msgid "%(title)s closes their eyes again."
 msgstr "%(title)s schließt die Augen wieder."
 
-#: lykan/gameengine.py:157
+#: lykan/gameengine.py:158
 #, python-format
 msgid "The day %(num)i begins!"
 msgstr "Tag %(num)i beginnt!"
 
-#: lykan/gameengine.py:162
+#: lykan/gameengine.py:163
 msgid "Last night, nobody died."
 msgstr "In der letzten Nacht ist niemand gestorben."
 
-#: lykan/gameengine.py:166
+#: lykan/gameengine.py:167
 msgid "Discuss, dear village."
 msgstr "Diskutiert, liebes Dorf."
 
-#: lykan/gameengine.py:167
+#: lykan/gameengine.py:168
 msgid "Who should the village kill?"
 msgstr "Wen soll das Dorf töten?"
 
-#: lykan/gameengine.py:168
+#: lykan/gameengine.py:169
 msgid "And the vote cast was:"
 msgstr "Und die Abstimmung ergab:"
 
-#: lykan/gameengine.py:173
+#: lykan/gameengine.py:174
 msgid "The person did not die!"
 msgstr "Die Person starb nicht."
 
-#: lykan/gameengine.py:176
+#: lykan/gameengine.py:177
 msgid "No conclusive vote was cast."
 msgstr "Die Abstimmung war nicht eindeutig."
 
-#: lykan/gameengine.py:183
+#: lykan/gameengine.py:184
 msgid "The game has ended, all are dead."
 msgstr "Das Spiel ist zu Ende, alle sind tot."
 
-#: lykan/gameengine.py:187
+#: lykan/gameengine.py:188
 #, python-format
 msgid "The game has ended. The winners are: %(title)s."
 msgstr "Das Spiel ist zu Ende, die Gewinner sind: %(title)s."
 
-#: lykan/gameengine.py:189
+#: lykan/gameengine.py:190
 msgid "You have won!"
 msgstr "Du hast gewonnen!"
 
-#: lykan/gameengine.py:194
+#: lykan/gameengine.py:195
 msgid "Welcome to Werewolves!"
 msgstr "Willkommen zu Werwölfe!"
 
-#: lykan/gameengine.py:225
+#: lykan/gameengine.py:226
 msgid "Not the correct amount of cards"
 msgstr "Falsche Anzahl an Karten"
 
@@ -189,39 +189,39 @@ msgstr "Falsche Anzahl an Karten"
 msgid "<Voice>Brian</Voice>"
 msgstr "<Voice>Hans</Voice>"
 
-#: lykan/main.py:195
-msgid "Please select the correct amount of players."
-msgstr "Wähle die richtige Anzahl an Spielern aus."
-
-#: lykan/main.py:211
-msgid "<b>Game not found! Check the address you entered!</b>"
-msgstr "<b>Spiel nicht gefunden! Prüfe die eingegebene Adresse!</b>"
-
-#: lykan/main.py:225
-msgid "<b>What is your name?</b>"
-msgstr "<b>Wie heißt du?</b>"
-
-#: lykan/main.py:229
-msgid "Name already taken! Try again."
-msgstr "Name schon vergeben. Versuche es erneut."
-
-#: lykan/main.py:231
-msgid "Game has already started."
-msgstr "Das Spiel ist schon angefangen."
-
-#: lykan/main.py:233
+#: lykan/main.py:129
 msgid "Waiting for game master to start the game."
 msgstr "Warte auf den Spielleiter für den Spielstart."
 
-#: lykan/main.py:244
+#: lykan/main.py:201
+msgid "Please select the correct amount of players."
+msgstr "Wähle die richtige Anzahl an Spielern aus."
+
+#: lykan/main.py:217
+msgid "<b>Game not found! Check the address you entered!</b>"
+msgstr "<b>Spiel nicht gefunden! Prüfe die eingegebene Adresse!</b>"
+
+#: lykan/main.py:231
+msgid "<b>What is your name?</b>"
+msgstr "<b>Wie heißt du?</b>"
+
+#: lykan/main.py:235
+msgid "Name already taken! Try again."
+msgstr "Name schon vergeben. Versuche es erneut."
+
+#: lykan/main.py:237
+msgid "Game has already started."
+msgstr "Das Spiel ist schon angefangen."
+
+#: lykan/main.py:249
 msgid "You do not have access to this game."
 msgstr "Du hast keinen Zugang zu diesem Spiel."
 
-#: lykan/main.py:250
+#: lykan/main.py:255
 msgid "Waiting for players to join the game."
 msgstr "Warte auf Spieler, die dem Spiel beitreten."
 
-#: lykan/main.py:254
+#: lykan/main.py:259
 #, python-format
 msgid "%(num)i players are participating."
 msgstr "%(num)i Spieler sind dabei."
@@ -242,47 +242,50 @@ msgstr "tritt bei:"
 msgid "voted for"
 msgstr "stimmte für"
 
-#: lykan/templates/lykan.js.j2:72
+#: lykan/templates/lykan.js.j2:73
 msgid "That&apos;s me"
 msgstr "Das bin ich"
 
-#: lykan/templates/lykan.js.j2:83
+#: lykan/templates/lykan.js.j2:85
 msgid "How many of each card should be in the game?"
 msgstr "Wie viele Karten für jede Rolle sollen im Spiel sein?"
 
-#: lykan/templates/lykan.js.j2:87
+#: lykan/templates/lykan.js.j2:90
 msgid "Select cards"
 msgstr "Wähle Karten aus"
 
-#: lykan/templates/lykan.js.j2:97
+#: lykan/templates/lykan.js.j2:101
 #, python-format
 msgid "select %i players"
 msgstr "wähle %i Spieler aus"
 
-#: lykan/templates/lykan.js.j2:101
+#: lykan/templates/lykan.js.j2:106
 msgid "This player"
 msgstr "Dieser Spieler"
 
-#: lykan/templates/lykan.js.j2:101
+#: lykan/templates/lykan.js.j2:107
 msgid "These players"
 msgstr "Diese Spieler"
 
-#: lykan/templates/lykan.js.j2:124
+#: lykan/templates/lykan.js.j2:131
 msgid "Yes"
 msgstr "Ja"
 
-#: lykan/templates/lykan.js.j2:124
+#: lykan/templates/lykan.js.j2:132
 msgid "No"
 msgstr "Nein"
 
-#: lykan/templates/lykan.js.j2:137
+#: lykan/templates/lykan.js.j2:145
 msgid "Players in the game:"
 msgstr "Spieler im Spiel:"
 
-#: lykan/templates/lykan.js.j2:137
+#: lykan/templates/lykan.js.j2:146
 msgid "Everybody is in!"
 msgstr "Alle Spieler sind aufgeführt!"
 
 #: lykan/templates/main.html.j2:2
-msgid "Play Werewolves online"
-msgstr "Spiele Werwölfe online"
+msgid "Play Werewolves with a virtual game master"
+msgstr "Spiele Werwölfe mit einem virtuellen Spielleiter"
+
+#~ msgid "Play Werewolves online"
+#~ msgstr "Spiele Werwölfe online"
