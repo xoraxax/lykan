@@ -318,7 +318,7 @@ def js(locale):
 def voice(locale, hash):
     if locale not in KNOWN_LANGS:
         return "ERR"
-    return send_from_directory(os.path.join(os.path.abspath(__file__ + "/.."), "translations", locale, "voice"), hash + ".mp3", cache_timeout=600)
+    return send_from_directory(os.path.join(_TRANSLATIONS_DIR, locale, "voice"), hash + ".mp3", cache_timeout=600)
 
 
 @app.route("/create_new_game/<locale>", methods=["POST"])
