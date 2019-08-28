@@ -7,7 +7,7 @@ builtins._ = lambda x, *args: (x % args) if args else x
 from babel.messages.pofile import read_po
 from boto3 import Session
 
-from lykan import cards, util
+from lykan import cards, util, gameengine
 
 
 TRANSLATIONS_DIR = os.path.join(os.path.abspath(__file__ + "/.."), "translations")
@@ -33,7 +33,7 @@ def get_all_raw_messages(locale):
 
 
 def get_all_titles(catalog):
-    return {catalog[c.TITLE].string or catalog[c.TITLE].id for c in cards.ALL_CARDS}
+    return {catalog[c.TITLE].string or catalog[c.TITLE].id for c in cards.ALL_CARDS + gameengine.Subgroup.__subclasses__() if hasattr(c, "TITLE")}
 
 
 def get_all_potential_messages(messages_iter, **kwargs):
