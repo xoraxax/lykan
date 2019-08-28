@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-08-28 13:27+0200\n"
-"PO-Revision-Date: 2019-08-28 13:20+0200\n"
+"PO-Revision-Date: 2019-08-28 15:42+0200\n"
 "Last-Translator: \n"
 "Language: de\n"
 "Language-Team: de <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: lykan/cards.py:32
 msgid "This player died:"
@@ -70,7 +71,7 @@ msgstr "Wen möchtest du töten, Werwolf? Die Stimmenmehrheit gewinnt."
 
 #: lykan/cards.py:128
 msgid "You werewolves chose to kill this player:"
-msgstr "Ihr Werwölfe habt diesen Spieler getötet:"
+msgstr "Ihr Werwölfe möchtet diesen Spieler töten:"
 
 #: lykan/cards.py:138
 msgid "The hunter"
@@ -300,4 +301,3 @@ msgstr "Spiele Werwölfe mit einem virtuellen Spielleiter"
 
 #~ msgid "The day %(num)i begins!"
 #~ msgstr "Tag %(num)i beginnt!"
-
