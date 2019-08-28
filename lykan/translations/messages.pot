@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-08-28 13:12+0200\n"
+"POT-Creation-Date: 2019-08-28 13:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,53 +138,57 @@ msgstr ""
 msgid "%(title)s closes their eyes again."
 msgstr ""
 
-#: lykan/gameengine.py:159
+#: lykan/gameengine.py:157
+msgid "Everybody opens their eyes again."
+msgstr ""
+
+#: lykan/gameengine.py:160
 #, python-format
 msgid "Day %(num)i begins!"
 msgstr ""
 
-#: lykan/gameengine.py:164
+#: lykan/gameengine.py:165
 msgid "Last night, nobody died."
 msgstr ""
 
-#: lykan/gameengine.py:168
+#: lykan/gameengine.py:169
 msgid "Discuss, dear village."
 msgstr ""
 
-#: lykan/gameengine.py:169
+#: lykan/gameengine.py:170
 msgid "Who should the village kill?"
 msgstr ""
 
-#: lykan/gameengine.py:170
+#: lykan/gameengine.py:171
 msgid "And the vote cast was:"
 msgstr ""
 
-#: lykan/gameengine.py:175
+#: lykan/gameengine.py:176
 msgid "The person did not die!"
 msgstr ""
 
-#: lykan/gameengine.py:178
+#: lykan/gameengine.py:179
 msgid "No conclusive vote was cast."
 msgstr ""
 
-#: lykan/gameengine.py:185
+#: lykan/gameengine.py:186
 msgid "The game has ended, all are dead."
 msgstr ""
 
-#: lykan/gameengine.py:189
+#: lykan/gameengine.py:190
 #, python-format
 msgid "The game has ended. The winners are: %(title)s."
 msgstr ""
 
-#: lykan/gameengine.py:191
+#: lykan/gameengine.py:192
 msgid "You have won!"
 msgstr ""
 
-#: lykan/gameengine.py:196
+#: lykan/gameengine.py:197
 msgid "Welcome to Werewolves!"
 msgstr ""
 
-#: lykan/gameengine.py:227
+#: lykan/gameengine.py:228
 msgid "Not the correct amount of cards"
 msgstr ""
 
