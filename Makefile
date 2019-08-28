@@ -12,5 +12,5 @@ init:
 	pybabel init -i lykan/translations/messages.pot -d lykan/translations -l ${LANG}
 	mkdir -p lykan/translations/${LANG}/voice
 
-speechload:
+speechload: update
 	python -m lykan.speechloader
