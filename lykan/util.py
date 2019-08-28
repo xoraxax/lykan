@@ -43,6 +43,6 @@ def check_vote(amongst, poll_result):
         return common[0][0]
 
 
-def Pipe(buffer_size=1):
+def Pipe(buffer_size=4):
     a, b = Queue(buffer_size), Queue(buffer_size)
     return Connection(a, b), Connection(b, a)
