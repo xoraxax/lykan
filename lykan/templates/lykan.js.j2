@@ -161,12 +161,28 @@ function make_ws(typ) {
     make_ws_2(typ);
 }
 
+function play_audio(context, name, after_play) {
+  var request = new XMLHttpRequest();
+  request.open("GET", name, true);
+  request.responseType = "arraybuffer";
+  var onDecoded = function(buffer) {
+    var bufferSource = context.createBufferSource();
+    bufferSource.buffer = buffer;
+    bufferSource.connect(context.destination);
+    bufferSource.onended = after_play;
+    bufferSource.start();
+  };
+  request.onload = function() {
+    context.decodeAudioData(request.response, onDecoded);
+  }
+  request.send();
+}
+
 function make_ws_2(typ) {
   var button = document.getElementById("launchbutton");
   button.remove();
-  var audio = new Audio("../static/noise.mp3");
-  audio.loop = true;
-  audio.play();
+
+  var context = new AudioContext() || new webkitAudioContext();
 
   const eventCount = 5;
   const ws_uri = get_ws_uri() + typ;
@@ -203,17 +219,9 @@ function make_ws_2(typ) {
       return;
     var msg = JSON.parse(evt.data);
     if (!!msg.hash) {
-      var audio = new Audio("../../voice/{{ locale }}/" + msg.hash);
-      audio.addEventListener("playing", function () {
-        var sentData = false;
-        audio.addEventListener("timeupdate", function () {
-          if (audio.paused && !sentData) {
-            sentData = true;
-            ws.send(" ");
-          }
-        });
+      play_audio(context, "../../voice/{{ locale }}/" + msg.hash, function() {
+        ws.send(" ");
       });
-      audio.oncanplaythrough = function () { audio.play(); };
     }
     var eventResult = make_form(document, ws, msg);
     window.setTimeout(function () {
